@@ -33,11 +33,37 @@ namespace PortTunnel_forWindowsXP_1
 
         }
 
-        void listener_1()
+        void process_SettingsFile()
+        {
+
+            string[] settingsArr = tb_Settings.Text.Split('\n');
+            foreach ( string s in settingsArr )
+            {
+                string listenAddress="", connectAddress="";
+                int    listenPort=0, connectPort=0;
+                string[] lineArr = s.Split(' ');
+                foreach ( string s2 in lineArr )
+                {
+                    if(s2.StartsWith("listenAddress="))
+                        listenAddress = s2.Replace("listenAddress=", "");
+                    if(s2.StartsWith("connectAddress="))
+                        connectAddress = s2.Replace("connectAddress=","");
+                    if(s2.StartsWith("listenPort="))
+                        listenPort =  int.Parse(s2.Replace("listenPort=", ""));
+                    if(s2.StartsWith("connectPort="))
+                        connectPort = int.Parse(s2.Replace("connectPort=", ""));
+                }
+            
+                if(listenAddress != "" && connectAddress != "" && listenPort > 0 && connectPort > 0)                    
+                    listener_start(listenAddress, connectAddress, listenPort, connectPort);
+            }
+
+        }
+        void listener_start(string listenAddress, string connectAddress, int listenPort, int connectPort)
         {
             TcpForwarderSlim tunnel = new TcpForwarderSlim();
-            tunnel.local = new IPEndPoint(IPAddress.Any, 4001);
-            tunnel.remote = new IPEndPoint(IPAddress.Parse("172.18.12.47"), 3389);
+            tunnel.local = new IPEndPoint(IPAddress.Any, listenPort);
+            tunnel.remote = new IPEndPoint(IPAddress.Parse(connectAddress), connectPort);
 
             Thread InstanceCaller = new Thread(new ThreadStart(tunnel.Start));
             InstanceCaller.Start();
