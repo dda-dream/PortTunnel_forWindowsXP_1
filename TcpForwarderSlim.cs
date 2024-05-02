@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Net.Sockets;
 using System.Net;
 using System.Text;
+using System.Runtime.InteropServices;
 
 namespace PortTunnel_forWindowsXP_1
 {
@@ -12,20 +13,26 @@ namespace PortTunnel_forWindowsXP_1
         public IPEndPoint local;
         public IPEndPoint remote;
 
+        public string startResult="OK";
+
         public void Start()
         {
-            _mainSocket.Bind(local);
-            _mainSocket.Listen(10);
+            try {
+                _mainSocket.Bind(local);
+                _mainSocket.Listen(10);
  
-            while (true)
-            {
-                var source = _mainSocket.Accept();
-                var destination = new TcpForwarderSlim();
-                var state = new State(source, destination._mainSocket);
-                destination.Connect(remote, source);
-                source.BeginReceive(state.Buffer, 0, state.Buffer.Length, 0, OnDataReceive, state);
-               
-            }
+                while (true)
+                {
+                    var source = _mainSocket.Accept();
+                    var destination = new TcpForwarderSlim();
+                    var state = new State(source, destination._mainSocket);
+                    destination.Connect(remote, source);
+                    source.BeginReceive(state.Buffer, 0, state.Buffer.Length, 0, OnDataReceive, state);
+                }
+            } catch (Exception ex)
+            {
+                startResult = ex.ToString();
+            }
         }
  
         private void Connect(EndPoint remoteEndpoint, Socket destination)
