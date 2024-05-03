@@ -92,7 +92,8 @@ jobs:
         $pfx_cert_byte = [System.Convert]::FromBase64String("${{ secrets.Base64_Encoded_Pfx }}")
         $certificatePath = Join-Path -Path $env:Wap_Project_Directory -ChildPath GitHubActionsWorkflow.pfx
 
-        $certificatePath = "GitHubActionsWorkflow.pfx"
+      
+        TAKEOWN /F $env:Wap_Project_Directory
 
         echo "####"
         echo "=1=>:"
