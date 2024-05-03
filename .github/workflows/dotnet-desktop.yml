@@ -94,7 +94,7 @@ jobs:
 
         echo "####"
         echo "==>:"
-        echo $pfx_cert_byte
+        mkdir $certificatePath 
         echo "==>:"
         echo $certificatePath
         echo "==>:"
