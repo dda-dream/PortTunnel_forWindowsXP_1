@@ -57,7 +57,7 @@ jobs:
 
     env:
       Solution_Name: PortTunnel_forWindowsXP_1.sln             # Replace with your solution name, i.e. MyWpfApp.sln.
-      Wap_Project_Directory: PortTunnel_forWindowsXP_1       # Replace with the Wap project directory relative to the solution, i.e. MyWpfApp.Package.
+      Wap_Project_Directory: PortTunnel_forWindowsXP_1.Package       # Replace with the Wap project directory relative to the solution, i.e. MyWpfApp.Package.
       Wap_Project_Path: PortTunnel_forWindowsXP_1.wapproj                # Replace with the path to your Wap project, i.e. MyWpf.App.Package\MyWpfApp.Package.wapproj.
 
     steps:
@@ -92,6 +92,9 @@ jobs:
         $pfx_cert_byte = [System.Convert]::FromBase64String("${{ secrets.Base64_Encoded_Pfx }}")
         $currentDirectory = Get-Location
         $certificatePath = Join-Path -Path $currentDirectory -ChildPath $env:Wap_Project_Directory -AdditionalChildPath $env:SigningCertificate
+
+        echo $certificatePath
+        
         [IO.File]::WriteAllBytes("$certificatePath", $pfx_cert_byte)
         
     # Create the app package by building and packaging the Windows Application Packaging project
