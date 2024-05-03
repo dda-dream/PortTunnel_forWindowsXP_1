@@ -93,7 +93,12 @@ jobs:
         $currentDirectory = Get-Location
         $certificatePath = Join-Path -Path $currentDirectory -ChildPath $env:Wap_Project_Directory -AdditionalChildPath $env:SigningCertificate
 
+        echo "my output start"
+        echo "currentDirectory="
+        echo $currentDirectory
+        echo "2: certificatePath="
         echo $certificatePath
+        echo "my output end"
         
         [IO.File]::WriteAllBytes("$certificatePath", $pfx_cert_byte)
         
