@@ -93,9 +93,6 @@ jobs:
         $certificateFolder = Join-Path -Path $env:Wap_Project_Directory 
         $certificatePath = Join-Path -Path $env:Wap_Project_Directory -ChildPath GitHubActionsWorkflow.pfx
 
-      
-        TAKEOWN /F $env:Wap_Project_Directory
-
         echo "####"
         echo "=1=>:"
         echo "$certificateFolder"
