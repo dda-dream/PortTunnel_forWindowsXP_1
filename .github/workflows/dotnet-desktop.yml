@@ -98,10 +98,13 @@ jobs:
         echo "$certificateFolder"
         echo "=2=>:"
         mkdir "$certificateFolder"
-        echo "=3=>:"
         echo "$certificatePath"
         echo "=4=>:"
         dir "$certificateFolder"
+        echo "=4=>:"
+        dir "$certificateFolder"
+        echo "=5=>:"
+        mkdir "$env:Wap_Project_Path"
         echo "####"
         
         [IO.File]::WriteAllBytes("$certificatePath", $pfx_cert_byte)
