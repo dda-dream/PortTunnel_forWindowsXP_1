@@ -90,7 +90,7 @@ jobs:
     - name: Decode the pfx
       run: |
         $pfx_cert_byte = [System.Convert]::FromBase64String("${{ secrets.Base64_Encoded_Pfx }}")
-        $certificateFolder = Join-Path -Path $env:Wap_Project_Directory 
+        $certificateFolder = -Path $env:Wap_Project_Directory 
         $certificatePath = Join-Path -Path $env:Wap_Project_Directory -ChildPath GitHubActionsWorkflow.pfx
 
         echo "####"
