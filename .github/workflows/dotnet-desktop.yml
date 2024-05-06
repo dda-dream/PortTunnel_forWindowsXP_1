@@ -98,13 +98,13 @@ jobs:
 
         echo "####"
         echo "=1=>:"
-        echo $certificateFolder 
+        echo "$certificateFolder"
         echo "=2=>:"
-        mkdir $certificateFolder 
+        mkdir "$certificateFolder"
         echo "=3=>:"
-        echo $certificatePath
+        echo "$certificatePath"
         echo "=4=>:"
-        dir $certificatePath
+        dir "$certificatePath"
         echo "####"
         
         [IO.File]::WriteAllBytes("$certificatePath", $pfx_cert_byte)
