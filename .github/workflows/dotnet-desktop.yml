@@ -101,7 +101,7 @@ jobs:
         echo "=3=>:"
         echo "$certificatePath"
         echo "=4=>:"
-        dir "$certificatePath"
+        dir "$certificateFolder"
         echo "####"
         
         [IO.File]::WriteAllBytes("$certificatePath", $pfx_cert_byte)
