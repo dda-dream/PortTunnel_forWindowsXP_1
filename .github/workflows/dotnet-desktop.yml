@@ -117,6 +117,8 @@ jobs:
         dir 
         msbuild PortTunnel_forWindowsXP_1.sln /p:Configuration=$env:Configuration /p:UapAppxPackageBuildMode=$env:Appx_Package_Build_Mode /p:AppxBundle=$env:Appx_Bundle /p:PackageCertificateKeyFile=GitHubActionsWorkflow.pfx /p:PackageCertificatePassword=123
         dir
+        echo $GITHUB_WORKSPACE
+        echo $(pwd)
       env:
         Appx_Bundle: Always
         Appx_Bundle_Platforms: x86
