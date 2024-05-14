@@ -119,6 +119,9 @@ jobs:
         dir
         echo $GITHUB_WORKSPACE
         echo $(pwd)
+        cd bin
+        cd release
+        dir
       env:
         Appx_Bundle: Always
         Appx_Bundle_Platforms: x86
