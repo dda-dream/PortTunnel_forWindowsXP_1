@@ -26,6 +26,7 @@ namespace PortTunnel_forWindowsXP_1
         {
             string s = File.ReadAllText("PortTunnelSettings.txt");
             tb_Settings.Text = s;
+            threadsStarted = new Thread[10];
         }
 
         void button1_Click( object sender, EventArgs e )
@@ -37,7 +38,6 @@ namespace PortTunnel_forWindowsXP_1
         void process_SettingsFile()
         {
             string[] settingsArr = tb_Settings.Text.Split('\n');
-            threadsStarted = new Thread[10];
 
             foreach ( string s in settingsArr )
             {
@@ -89,17 +89,31 @@ namespace PortTunnel_forWindowsXP_1
 
         void button_Stop_Click( object sender, EventArgs e )
         {
+            stop_threads();
+        }
+
+        void stop_threads()
+        {
             for(int i = 0; i < threadsStarted.Length; i++)
             {
                 if(threadsStarted[i] != null)
                 {
                     if(threadsStarted[i].ThreadState == System.Threading.ThreadState.Running)
                     { 
+                        string threadName = threadsStarted[i].Name;
+
                         threadsStarted[i].Abort();
-                        LogAdd(threadsStarted[i].Name+" aborting.");
+                        threadsStarted[i] = null;
+                        
+                        LogAdd(threadName+" aborting.");
                     }
                 }
             }
+        }
+
+        private void Form1_FormClosing( object sender, FormClosingEventArgs e )
+        {
+            stop_threads();
         }
     }
 }
