@@ -1,4 +1,4 @@
-name: "My Project Action #1"
+name: "Compile and Build #1"
 
 on:
    workflow_dispatch:
