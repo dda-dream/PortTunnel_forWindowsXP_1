@@ -18,12 +18,21 @@ namespace PortTunnel_forWindowsXP_1
 
         public string startResult="OK";
 
-        public void Start()
-        {
+        public void StartListening()
+        { 
             try {
                 _mainSocket.Bind(local);
                 _mainSocket.Listen(10);
- 
+            } catch (Exception ex)
+            {
+                startResult = ex.Message.ToString();
+            }        
+        }
+        public void Start()
+        {
+            try {
+                //_mainSocket.Bind(local);
+                //_mainSocket.Listen(10);
                 while (true)
                 {
                     var source = _mainSocket.Accept();

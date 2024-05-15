@@ -6,6 +6,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Net;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading;
 using System.Windows.Forms;
@@ -60,7 +61,6 @@ namespace PortTunnel_forWindowsXP_1
                 if(listenAddress != "" && connectAddress != "" && listenPort > 0 && connectPort > 0)                    
                     listener_start(listenAddress, connectAddress, listenPort, connectPort);
             }
-
         }
         void listener_start(string listenAddress, string connectAddress, int listenPort, int connectPort)
         {
@@ -69,6 +69,8 @@ namespace PortTunnel_forWindowsXP_1
             tunnel.remote = new IPEndPoint(IPAddress.Parse(connectAddress), connectPort);
             tunnel.name = String.Format("thread parameters: ({0}, {1}, {2}, {3})",listenAddress, connectAddress, listenPort, connectPort);
             LogAdd("START: "+tunnel.name);
+            tunnel.StartListening();
+            LogAdd("startResult: "+tunnel.startResult);
 
             Thread InstanceCaller = new Thread(new ThreadStart(tunnel.Start));
 
@@ -77,8 +79,6 @@ namespace PortTunnel_forWindowsXP_1
 
             threadsStarted[threadsStartedCount] = tunnel;
             threadsStartedCount++;
-
-            LogAdd("startResult: "+tunnel.startResult);
         }
         
         void LogAdd(string message)
