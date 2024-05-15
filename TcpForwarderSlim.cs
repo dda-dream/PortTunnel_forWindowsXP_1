@@ -4,6 +4,7 @@ using System.Net.Sockets;
 using System.Net;
 using System.Text;
 using System.Runtime.InteropServices;
+using System.Data;
 
 namespace PortTunnel_forWindowsXP_1
 {
@@ -12,6 +13,8 @@ namespace PortTunnel_forWindowsXP_1
         private readonly Socket _mainSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
         public IPEndPoint local;
         public IPEndPoint remote;
+
+        public string name = "NotInitialized";
 
         public string startResult="OK";
 
@@ -28,6 +31,7 @@ namespace PortTunnel_forWindowsXP_1
                     var state = new State(source, destination._mainSocket);
                     destination.Connect(remote, source);
                     source.BeginReceive(state.Buffer, 0, state.Buffer.Length, 0, OnDataReceive, state);
+                    
                 }
             } catch (Exception ex)
             {
@@ -60,7 +64,11 @@ namespace PortTunnel_forWindowsXP_1
                 state.SourceSocket.Close();
             }
         }
- 
+
+        public void Stop()
+        {
+            _mainSocket.Close();
+        }
         private class State
         {
             public Socket SourceSocket { get; private set; }

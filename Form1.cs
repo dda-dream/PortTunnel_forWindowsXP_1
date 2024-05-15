@@ -15,8 +15,9 @@ namespace PortTunnel_forWindowsXP_1
     public partial class Form1 : Form
     {
         string[] settingArray;
-        Thread[] threadsStarted;
+        TcpForwarderSlim[] threadsStarted;
         int      threadsStartedCount=0;
+        
         public Form1()
         {
             InitializeComponent();
@@ -26,7 +27,7 @@ namespace PortTunnel_forWindowsXP_1
         {
             string s = File.ReadAllText("PortTunnelSettings.txt");
             tb_Settings.Text = s;
-            threadsStarted = new Thread[10];
+            threadsStarted = new TcpForwarderSlim[10];
         }
 
         void button1_Click( object sender, EventArgs e )
@@ -63,21 +64,21 @@ namespace PortTunnel_forWindowsXP_1
         }
         void listener_start(string listenAddress, string connectAddress, int listenPort, int connectPort)
         {
-            string s = String.Format("listener_start({0}, {1}, {2}, {3})",listenAddress, connectAddress, listenPort, connectPort);
-            LogAdd(s);
             TcpForwarderSlim tunnel = new TcpForwarderSlim();
             tunnel.local = new IPEndPoint(IPAddress.Any, listenPort);
             tunnel.remote = new IPEndPoint(IPAddress.Parse(connectAddress), connectPort);
+            tunnel.name = String.Format("thread parameters: ({0}, {1}, {2}, {3})",listenAddress, connectAddress, listenPort, connectPort);
+            LogAdd("START: "+tunnel.name);
 
             Thread InstanceCaller = new Thread(new ThreadStart(tunnel.Start));
 
             InstanceCaller.Start();
-            InstanceCaller.Name = s;
+            InstanceCaller.Name = tunnel.name;
 
-            threadsStarted[threadsStartedCount] = InstanceCaller;
+            threadsStarted[threadsStartedCount] = tunnel;
             threadsStartedCount++;
 
-            LogAdd(tunnel.startResult);
+            LogAdd("startResult: "+tunnel.startResult);
         }
         
         void LogAdd(string message)
@@ -98,15 +99,10 @@ namespace PortTunnel_forWindowsXP_1
             {
                 if(threadsStarted[i] != null)
                 {
-                    if(threadsStarted[i].ThreadState == System.Threading.ThreadState.Running)
-                    { 
-                        string threadName = threadsStarted[i].Name;
-
-                        threadsStarted[i].Abort();
-                        threadsStarted[i] = null;
-                        
-                        LogAdd(threadName+" aborting.");
-                    }
+                    var thread = threadsStarted[i];
+                    LogAdd("STOP: "+thread.name);
+                    thread.Stop();
+                    threadsStarted[i] = null;
                 }
             }
         }
