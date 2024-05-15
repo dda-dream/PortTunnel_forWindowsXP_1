@@ -1,4 +1,4 @@
-name: Delete old workflow runs
+name: "Delete old workflow runs #1"
 on:
   workflow_dispatch:
     inputs:
