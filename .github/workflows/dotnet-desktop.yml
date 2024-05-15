@@ -1,4 +1,4 @@
-name: "My Project Action #1"
+name: "Compile and Build #1"
 
 on:
    workflow_dispatch:
@@ -95,4 +95,5 @@ jobs:
     - name: Upload build artifacts
       uses: actions/upload-artifact@v4
       with:
-        path: "d:\\a\\"
+        name: CompiledBinary
+        path: "d:\\a\\PortTunnel_forWindowsXP_1\\PortTunnel_forWindowsXP_1\\bin\\release\\"
