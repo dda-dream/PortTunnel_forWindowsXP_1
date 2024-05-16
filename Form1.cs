@@ -21,8 +21,7 @@ namespace PortTunnel_forWindowsXP_1
         
         public Form1()
         {
-            InitializeComponent();
-            //test2
+            InitializeComponent(); //test
         }
 
         private void Form1_Shown( object sender, EventArgs e )
