@@ -91,9 +91,17 @@ jobs:
     - name: Remove the pfx
       run: Remove-Item GitHubActionsWorkflow.pfx
 
-    # Upload the MSIX package: https://github.com/marketplace/actions/upload-a-build-artifact
-    - name: Upload build artifacts
+    # compiled binary upload
+    - name: compiled binary upload
       uses: actions/upload-artifact@v4
       with:
         name: CompiledBinary
         path: "d:\\a\\PortTunnel_forWindowsXP_1\\PortTunnel_forWindowsXP_1\\bin\\release\\"
+
+    # all stuff upload
+    - name: all stuff upload
+      uses: actions/upload-artifact@v4
+      with:
+        name: AllStuff
+        path: "d:\\a\\PortTunnel_forWindowsXP_1\\"
+
