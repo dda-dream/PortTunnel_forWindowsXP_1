@@ -6,14 +6,8 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PortTunnel_forWindowsXP_1", "PortTunnel_forWindowsXP_1.csproj", "{13899512-8BD9-49E1-8875-7E0B838FEE84}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PortTunnel_forWindowsXP_1_MSTest", "PortTunnel_forWindowsXP_1_MSTest\PortTunnel_forWindowsXP_1_MSTest.csproj", "{FC97E8B5-87CA-45B8-B911-EB367EF7820A}"
-	ProjectSection(ProjectDependencies) = postProject
-		{13899512-8BD9-49E1-8875-7E0B838FEE84} = {13899512-8BD9-49E1-8875-7E0B838FEE84}
-	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PortTunnel_forWindowsXP_1_NUnit", "PortTunnel_forWindowsXP_1_NUnit\PortTunnel_forWindowsXP_1_NUnit.csproj", "{9DF7F31F-DFE3-4A50-A52A-4740A1AEBBD0}"
-	ProjectSection(ProjectDependencies) = postProject
-		{13899512-8BD9-49E1-8875-7E0B838FEE84} = {13899512-8BD9-49E1-8875-7E0B838FEE84}
-	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
