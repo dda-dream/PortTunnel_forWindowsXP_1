@@ -4,6 +4,10 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 17.9.34728.123
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PortTunnel_forWindowsXP_1", "PortTunnel_forWindowsXP_1.csproj", "{13899512-8BD9-49E1-8875-7E0B838FEE84}"
+	ProjectSection(ProjectDependencies) = postProject
+		{1C13BBC2-8C8F-4A4E-BBB2-E9EBE0393AE2} = {1C13BBC2-8C8F-4A4E-BBB2-E9EBE0393AE2}
+		{43F27D1D-79CA-4A58-A469-ECD820CA28DA} = {43F27D1D-79CA-4A58-A469-ECD820CA28DA}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PortTunnel_forWindowsXP_1_NUnit", "..\PortTunnel_forWindowsXP_1_Test\PortTunnel_forWindowsXP_1_NUnit.csproj", "{1C13BBC2-8C8F-4A4E-BBB2-E9EBE0393AE2}"
 EndProject
