@@ -4,14 +4,10 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 17.9.34728.123
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PortTunnel_forWindowsXP_1", "PortTunnel_forWindowsXP_1.csproj", "{13899512-8BD9-49E1-8875-7E0B838FEE84}"
-	ProjectSection(ProjectDependencies) = postProject
-		{1C13BBC2-8C8F-4A4E-BBB2-E9EBE0393AE2} = {1C13BBC2-8C8F-4A4E-BBB2-E9EBE0393AE2}
-		{43F27D1D-79CA-4A58-A469-ECD820CA28DA} = {43F27D1D-79CA-4A58-A469-ECD820CA28DA}
-	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PortTunnel_forWindowsXP_1_NUnit", "..\PortTunnel_forWindowsXP_1_Test\PortTunnel_forWindowsXP_1_NUnit.csproj", "{1C13BBC2-8C8F-4A4E-BBB2-E9EBE0393AE2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PortTunnel_forWindowsXP_1_MSTest", "PortTunnel_forWindowsXP_1_MSTest\PortTunnel_forWindowsXP_1_MSTest\PortTunnel_forWindowsXP_1_MSTest.csproj", "{0E84B625-71DD-4532-8A91-4547F06C33C2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PortTunnel_forWindowsXP_1_MSTest", "..\PortTunnel_forWindowsXP_1_MSTest\PortTunnel_forWindowsXP_1_MSTest\PortTunnel_forWindowsXP_1_MSTest.csproj", "{43F27D1D-79CA-4A58-A469-ECD820CA28DA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PortTunnel_forWindowsXP_1_NUnit", "PortTunnel_forWindowsXP_1_Test\PortTunnel_forWindowsXP_1_NUnit.csproj", "{A871EC01-6E22-4468-BE05-6B6AE4D7C37C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,22 +25,22 @@ Global
 		{13899512-8BD9-49E1-8875-7E0B838FEE84}.Release|Any CPU.Build.0 = Release|Any CPU
 		{13899512-8BD9-49E1-8875-7E0B838FEE84}.Release|x86.ActiveCfg = Release|x86
 		{13899512-8BD9-49E1-8875-7E0B838FEE84}.Release|x86.Build.0 = Release|x86
-		{1C13BBC2-8C8F-4A4E-BBB2-E9EBE0393AE2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1C13BBC2-8C8F-4A4E-BBB2-E9EBE0393AE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1C13BBC2-8C8F-4A4E-BBB2-E9EBE0393AE2}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{1C13BBC2-8C8F-4A4E-BBB2-E9EBE0393AE2}.Debug|x86.Build.0 = Debug|Any CPU
-		{1C13BBC2-8C8F-4A4E-BBB2-E9EBE0393AE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1C13BBC2-8C8F-4A4E-BBB2-E9EBE0393AE2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1C13BBC2-8C8F-4A4E-BBB2-E9EBE0393AE2}.Release|x86.ActiveCfg = Release|Any CPU
-		{1C13BBC2-8C8F-4A4E-BBB2-E9EBE0393AE2}.Release|x86.Build.0 = Release|Any CPU
-		{43F27D1D-79CA-4A58-A469-ECD820CA28DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{43F27D1D-79CA-4A58-A469-ECD820CA28DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{43F27D1D-79CA-4A58-A469-ECD820CA28DA}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{43F27D1D-79CA-4A58-A469-ECD820CA28DA}.Debug|x86.Build.0 = Debug|Any CPU
-		{43F27D1D-79CA-4A58-A469-ECD820CA28DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{43F27D1D-79CA-4A58-A469-ECD820CA28DA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{43F27D1D-79CA-4A58-A469-ECD820CA28DA}.Release|x86.ActiveCfg = Release|Any CPU
-		{43F27D1D-79CA-4A58-A469-ECD820CA28DA}.Release|x86.Build.0 = Release|Any CPU
+		{0E84B625-71DD-4532-8A91-4547F06C33C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E84B625-71DD-4532-8A91-4547F06C33C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E84B625-71DD-4532-8A91-4547F06C33C2}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{0E84B625-71DD-4532-8A91-4547F06C33C2}.Debug|x86.Build.0 = Debug|Any CPU
+		{0E84B625-71DD-4532-8A91-4547F06C33C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E84B625-71DD-4532-8A91-4547F06C33C2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0E84B625-71DD-4532-8A91-4547F06C33C2}.Release|x86.ActiveCfg = Release|Any CPU
+		{0E84B625-71DD-4532-8A91-4547F06C33C2}.Release|x86.Build.0 = Release|Any CPU
+		{A871EC01-6E22-4468-BE05-6B6AE4D7C37C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A871EC01-6E22-4468-BE05-6B6AE4D7C37C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A871EC01-6E22-4468-BE05-6B6AE4D7C37C}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{A871EC01-6E22-4468-BE05-6B6AE4D7C37C}.Debug|x86.Build.0 = Debug|Any CPU
+		{A871EC01-6E22-4468-BE05-6B6AE4D7C37C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A871EC01-6E22-4468-BE05-6B6AE4D7C37C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A871EC01-6E22-4468-BE05-6B6AE4D7C37C}.Release|x86.ActiveCfg = Release|Any CPU
+		{A871EC01-6E22-4468-BE05-6B6AE4D7C37C}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
