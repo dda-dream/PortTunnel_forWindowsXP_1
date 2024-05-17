@@ -5,9 +5,9 @@ VisualStudioVersion = 17.9.34728.123
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PortTunnel_forWindowsXP_1", "PortTunnel_forWindowsXP_1.csproj", "{13899512-8BD9-49E1-8875-7E0B838FEE84}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PortTunnel_forWindowsXP_1_MSTest", "PortTunnel_forWindowsXP_1_MSTest\PortTunnel_forWindowsXP_1_MSTest\PortTunnel_forWindowsXP_1_MSTest.csproj", "{0E84B625-71DD-4532-8A91-4547F06C33C2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PortTunnel_forWindowsXP_1_MSTest", "PortTunnel_forWindowsXP_1_MSTest\PortTunnel_forWindowsXP_1_MSTest.csproj", "{FC97E8B5-87CA-45B8-B911-EB367EF7820A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PortTunnel_forWindowsXP_1_NUnit", "PortTunnel_forWindowsXP_1_Test\PortTunnel_forWindowsXP_1_NUnit.csproj", "{A871EC01-6E22-4468-BE05-6B6AE4D7C37C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PortTunnel_forWindowsXP_1_NUnit", "PortTunnel_forWindowsXP_1_NUnit\PortTunnel_forWindowsXP_1_NUnit.csproj", "{9DF7F31F-DFE3-4A50-A52A-4740A1AEBBD0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,22 +25,22 @@ Global
 		{13899512-8BD9-49E1-8875-7E0B838FEE84}.Release|Any CPU.Build.0 = Release|Any CPU
 		{13899512-8BD9-49E1-8875-7E0B838FEE84}.Release|x86.ActiveCfg = Release|x86
 		{13899512-8BD9-49E1-8875-7E0B838FEE84}.Release|x86.Build.0 = Release|x86
-		{0E84B625-71DD-4532-8A91-4547F06C33C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0E84B625-71DD-4532-8A91-4547F06C33C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0E84B625-71DD-4532-8A91-4547F06C33C2}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{0E84B625-71DD-4532-8A91-4547F06C33C2}.Debug|x86.Build.0 = Debug|Any CPU
-		{0E84B625-71DD-4532-8A91-4547F06C33C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0E84B625-71DD-4532-8A91-4547F06C33C2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0E84B625-71DD-4532-8A91-4547F06C33C2}.Release|x86.ActiveCfg = Release|Any CPU
-		{0E84B625-71DD-4532-8A91-4547F06C33C2}.Release|x86.Build.0 = Release|Any CPU
-		{A871EC01-6E22-4468-BE05-6B6AE4D7C37C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A871EC01-6E22-4468-BE05-6B6AE4D7C37C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A871EC01-6E22-4468-BE05-6B6AE4D7C37C}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{A871EC01-6E22-4468-BE05-6B6AE4D7C37C}.Debug|x86.Build.0 = Debug|Any CPU
-		{A871EC01-6E22-4468-BE05-6B6AE4D7C37C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A871EC01-6E22-4468-BE05-6B6AE4D7C37C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A871EC01-6E22-4468-BE05-6B6AE4D7C37C}.Release|x86.ActiveCfg = Release|Any CPU
-		{A871EC01-6E22-4468-BE05-6B6AE4D7C37C}.Release|x86.Build.0 = Release|Any CPU
+		{FC97E8B5-87CA-45B8-B911-EB367EF7820A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC97E8B5-87CA-45B8-B911-EB367EF7820A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC97E8B5-87CA-45B8-B911-EB367EF7820A}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{FC97E8B5-87CA-45B8-B911-EB367EF7820A}.Debug|x86.Build.0 = Debug|Any CPU
+		{FC97E8B5-87CA-45B8-B911-EB367EF7820A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC97E8B5-87CA-45B8-B911-EB367EF7820A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC97E8B5-87CA-45B8-B911-EB367EF7820A}.Release|x86.ActiveCfg = Release|Any CPU
+		{FC97E8B5-87CA-45B8-B911-EB367EF7820A}.Release|x86.Build.0 = Release|Any CPU
+		{9DF7F31F-DFE3-4A50-A52A-4740A1AEBBD0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9DF7F31F-DFE3-4A50-A52A-4740A1AEBBD0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9DF7F31F-DFE3-4A50-A52A-4740A1AEBBD0}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{9DF7F31F-DFE3-4A50-A52A-4740A1AEBBD0}.Debug|x86.Build.0 = Debug|Any CPU
+		{9DF7F31F-DFE3-4A50-A52A-4740A1AEBBD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9DF7F31F-DFE3-4A50-A52A-4740A1AEBBD0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9DF7F31F-DFE3-4A50-A52A-4740A1AEBBD0}.Release|x86.ActiveCfg = Release|Any CPU
+		{9DF7F31F-DFE3-4A50-A52A-4740A1AEBBD0}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

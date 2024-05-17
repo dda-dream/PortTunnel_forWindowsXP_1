@@ -122,8 +122,6 @@
     <Content Include="PortTunnelSettings.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="PortTunnel_forWindowsXP_1.Package\TextFile1.txt" />
-    <Content Include="PortTunnel_forWindowsXP_1.wapproj\TextFile1.txt" />
     <Content Include="SigningCertificate_Encoded.txt" />
   </ItemGroup>
   <ItemGroup>
