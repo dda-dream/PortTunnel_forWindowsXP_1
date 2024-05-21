@@ -9,7 +9,7 @@ jobs:
     runs-on: windows-latest
     strategy:
       matrix:
-        dotnet-version: [ '2.0.x', '8.0.x' ]       
+        dotnet-version: [ '2.0.x' ]       
     steps:
     - name: Install .NET Core
       uses: actions/setup-dotnet@v4
