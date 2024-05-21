@@ -13,6 +13,7 @@ namespace PortTunnel_forWindowsXP_1_MSTest
             var result = controllerClass.TEST_METHOD_1(1, 3) == 4;
 
             Assert.IsTrue(result, "MSTest MUST BE 4");
+            return;
         }
         [TestMethod]
         public void test2_TEST_METHOD_1()
@@ -20,6 +21,7 @@ namespace PortTunnel_forWindowsXP_1_MSTest
             var result = controllerClass.TEST_METHOD_1(1, 3) == 4;
             
             Assert.IsTrue(result, "MSTest MUST BE 5");
+            return;
         }
     }
 }
