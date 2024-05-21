@@ -1,4 +1,4 @@
-namespace PortTunnel_forWindowsXP_1_Test
+namespace PortTunnel_forWindowsXP_1_NUnit
 {
     [Parallelizable( ParallelScope.Self )]
     [TestFixture]
@@ -9,17 +9,17 @@ namespace PortTunnel_forWindowsXP_1_Test
         [Test]
         public void test1_TEST_METHOD_1()
         {
-            var result = controllerClass.TEST_METHOD_1(1, 3) == 4;
+            int result = controllerClass.TEST_METHOD_1(1, 3);
 
-            Assert.IsTrue(result, "NUnit: MUST BE 4");
+            Assert.That( result, Is.EqualTo( 4 ) );
             return;
         }
         [Test]
         public void test2_TEST_METHOD_1()
         {
-            var result = controllerClass.TEST_METHOD_1(1, 3) == 4;
-            
-            Assert.IsTrue(result, "NUnit: MUST BE 5");
+            var result = controllerClass.TEST_METHOD_1(2, 3);
+
+            Assert.That( result, Is.EqualTo( 5 ) );
             return;
         }
     }
