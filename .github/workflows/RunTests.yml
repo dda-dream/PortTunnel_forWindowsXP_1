@@ -7,7 +7,9 @@ jobs:
   build:
 
     runs-on: windows-latest
-       
+    strategy:
+      matrix:
+        dotnet-version: [ '2.0.x' ]       
     steps:
     - name: Install .NET Core
       uses: actions/setup-dotnet@v4
@@ -16,13 +18,15 @@ jobs:
 
     - name: Checkout
       uses: actions/checkout@v4
-      with:
-        fetch-depth: 0
-
 
     - name: Restore dependencies
       run: dotnet restore
+
+    - name: Setup MSBuild.exe
+      uses: microsoft/setup-msbuild@v2
+      
     - name: Build
-      run: dotnet build --no-restore
+      run: msbuild PortTunnel_forWindowsXP_1.sln
+      
     - name: Test
       run: dotnet test --no-build --verbosity normal
