@@ -10,17 +10,17 @@ namespace PortTunnel_forWindowsXP_1_MSTest
         [TestMethod]
         public void test1_TEST_METHOD_1()
         {
-            var result = controllerClass.TEST_METHOD_1(1, 3) == 4;
+            var result = controllerClass.TEST_METHOD_1(1, 3);
 
-            Assert.IsTrue(result, "MSTest MUST BE 4");
+            Assert.AreEqual(result, 4);
             return;
         }
         [TestMethod]
         public void test2_TEST_METHOD_1()
         {
-            var result = controllerClass.TEST_METHOD_1(1, 3) == 4;
+            var result = controllerClass.TEST_METHOD_1(2, 3);
             
-            Assert.IsTrue(result, "MSTest MUST BE 5");
+            Assert.AreEqual(result, 5);
             return;
         }
     }
