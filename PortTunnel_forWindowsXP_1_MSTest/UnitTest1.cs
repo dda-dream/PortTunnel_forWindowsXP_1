@@ -3,27 +3,23 @@
 namespace PortTunnel_forWindowsXP_1_MSTest
 {
     [TestClass]
-    public class UnitTest1 : PageTest
+    public class UnitTest1 //: PageTest
     {
+        PortTunnel_forWindowsXP_1.ControllerClass controllerClass = new PortTunnel_forWindowsXP_1.ControllerClass();
+
         [TestMethod]
-        public async Task HomepageHasPlaywrightInTitleAndGetStartedLinkLinkingtoTheIntroPage()
+        public void test1_TEST_METHOD_1()
         {
-            await Page.GotoAsync( "https://playwright.dev" );
+            var result = controllerClass.TEST_METHOD_1(1, 3) == 4;
 
-            // Expect a title "to contain" a substring.
-            await Expect( Page ).ToHaveTitleAsync( new Regex( "Playwright" ) );
-
-            // create a locator
-            var getStarted = Page.Locator("text=Get Started");
-
-            // Expect an attribute "to be strictly equal" to the value.
-            await Expect( getStarted ).ToHaveAttributeAsync( "href", "/docs/intro" );
-
-            // Click the get started link.
-            await getStarted.ClickAsync();
-
-            // Expects the URL to contain intro.
-            await Expect( Page ).ToHaveURLAsync( new Regex( ".*intro" ) );
+            Assert.IsTrue(result, "MSTest Должно быть 4");
+        }
+        [TestMethod]
+        public void test2_TEST_METHOD_1()
+        {
+            var result = controllerClass.TEST_METHOD_1(1, 3) == 5;
+            
+            Assert.IsTrue(result, "MSTest Должно быть 5");
         }
     }
 }
