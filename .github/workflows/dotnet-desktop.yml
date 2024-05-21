@@ -1,4 +1,4 @@
-name: "Compile and Build #1"
+name: "Compile and Build and Test #1"
 on:
    workflow_dispatch:
 jobs:
@@ -25,8 +25,8 @@ jobs:
     - name: Setup MSBuild.exe
       uses: microsoft/setup-msbuild@v2
     # Execute all unit tests in the solution
-#    - name: Execute unit tests
-#      run: dotnet test
+    - name: Execute unit tests
+      run: dotnet test
 
     # Restore the application to populate the obj folder with RuntimeIdentifiers
     - name: Restore the application
