@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace PortTunnel_forWindowsXP_1
 {
-    class ControllerClass
+    public class ControllerClass
     {
         TcpForwarderSlim[]  threadsStarted = new TcpForwarderSlim[10];
         int                 threadsStartedCount=0;
@@ -87,6 +87,10 @@ namespace PortTunnel_forWindowsXP_1
             }
         }
 
+        public int TEST_METHOD_1(int a, int b)
+        {
+            return a + b;
+        }
 
     }
 }
