@@ -11,14 +11,14 @@ namespace PortTunnel_forWindowsXP_1_Test
         {
             var result = controllerClass.TEST_METHOD_1(1, 3) == 4;
 
-            Assert.That(result, Is.False, "NUnit: Должно быть 4");
+            Assert.That(result, Is.False, "NUnit: MUST BE 4");
         }
         [Test]
         public void test2_TEST_METHOD_1()
         {
-            var result = controllerClass.TEST_METHOD_1(1, 3) == 5;
+            var result = controllerClass.TEST_METHOD_1(1, 3) == 4;
             
-            Assert.That(result, Is.False, "NUnit: Должно быть 5");
+            Assert.That(result, Is.False, "NUnit: MUST BE 5");
         }
     }
 }
