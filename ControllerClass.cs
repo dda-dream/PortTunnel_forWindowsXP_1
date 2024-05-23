@@ -10,22 +10,12 @@ namespace PortTunnel_forWindowsXP_1
 {
     public class ControllerClass
     {
+
         TcpForwarderSlim[]  threadsStarted = new TcpForwarderSlim[10];
         int                 threadsStartedCount=0;
-        TextBox             tb_Log;
-        public void parm_tb_Log( TextBox _tb_Log )
-        {
-            tb_Log = _tb_Log;
-        }
-        public void LogAdd(string message)
-        { 
-            tb_Log.Text = tb_Log.Text +DateTime.Now.ToShortTimeString()+" : "+ message + Environment.NewLine;
-            tb_Log.SelectionStart = tb_Log.TextLength;
-            tb_Log.ScrollToCaret();
-        }
         public string ReadSettingsFile()
         { 
-            LogAdd("Read settings file.");
+            Form1._Form1.LogAdd("Read settings file.");
             string              s = "";
             s = File.ReadAllText("PortTunnelSettings.txt");
             return s;
@@ -61,11 +51,11 @@ namespace PortTunnel_forWindowsXP_1
             tunnel.local  = new IPEndPoint(IPAddress.Parse(listenAddress),  listenPort);
             tunnel.remote = new IPEndPoint(IPAddress.Parse(connectAddress), connectPort);
             tunnel.name = String.Format("thread parameters: ({0}, {1}, {2}, {3})",listenAddress, connectAddress, listenPort, connectPort);
-            LogAdd("START: "+tunnel.name);
+            Form1._Form1.LogAdd("START: "+tunnel.name);
             tunnel.StartListening();
-            LogAdd("startResult: "+tunnel.startResult);
+            Form1._Form1.LogAdd("startResult: "+tunnel.OperationExecutionResult);
 
-            Thread InstanceCaller = new Thread(new ThreadStart(tunnel.Start));
+            Thread InstanceCaller = new Thread(new ThreadStart(tunnel.StartTunnelConnection));
 
             InstanceCaller.Start();
             InstanceCaller.Name = tunnel.name;
@@ -80,9 +70,9 @@ namespace PortTunnel_forWindowsXP_1
                 if(threadsStarted[i] != null)
                 {
                     var thread = threadsStarted[i];
-                    LogAdd("STOP: "+thread.name);
+                    Form1._Form1.LogAdd("STOP: "+thread.name);
                     long bc = thread.GetbytesCount();
-                    LogAdd("Bytes: "+bc.ToString());
+                    Form1._Form1.LogAdd("Bytes: "+bc.ToString());
                     thread.Stop();
                     threadsStarted[i] = null;
                 }
