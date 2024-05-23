@@ -5,6 +5,9 @@ using System.Net;
 using System.Text;
 using System.Runtime.InteropServices;
 using System.Data;
+using System.Windows.Forms;
+using static System.Windows.Forms.AxHost;
+using System.Collections;
 
 namespace PortTunnel_forWindowsXP_1
 {
@@ -13,37 +16,35 @@ namespace PortTunnel_forWindowsXP_1
         private readonly Socket _mainSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
         public IPEndPoint local;
         public IPEndPoint remote;
-
         public string name = "NotInitialized";
-        public string startResult="OK";
-
+        public string OperationExecutionResult="OK";
         public static long bytesCount;
-
         public long GetbytesCount()
         { 
             return bytesCount; 
         }
         public void StartListening()
         { 
+            Form1._Form1.LogAdd("StartListening() called.");
             try {
                 _mainSocket.Bind(local);
-                _mainSocket.Listen(10);
+                _mainSocket.Listen(100);
             } catch (Exception ex)
             {
                 //if error Сделана попытка доступа к сокету методом, запрещенным правами доступа
                 //net stop hns
                 //net start hns
-                startResult = ex.Message.ToString();
+                OperationExecutionResult = ex.Message.ToString();
+                MessageBox.Show(OperationExecutionResult);
             }        
         }
-        public void Start()
+        public void StartTunnelConnection()
         {
             try {
-                //_mainSocket.Bind(local);
-                //_mainSocket.Listen(10);
                 while (true)
                 {
                     var source = _mainSocket.Accept();
+                    Form1._Form1.LogAdd(String.Format("Connection accepted {0:} -> {1:} ",source.RemoteEndPoint,source.LocalEndPoint));
                     var destination = new TcpForwarderSlim();
                     var state = new State(source, destination._mainSocket);
                     destination.Connect(remote, source);
@@ -52,15 +53,27 @@ namespace PortTunnel_forWindowsXP_1
                 }
             } catch (Exception ex)
             {
-                startResult = ex.ToString();
+                OperationExecutionResult = ex.ToString();
+                Form1._Form1.LogAdd(OperationExecutionResult);
+                //MessageBox.Show(OperationExecutionResult);
             }
         }
  
         private void Connect(EndPoint remoteEndpoint, Socket destination)
         {
-            var state = new State(_mainSocket, destination);
-            _mainSocket.Connect(remoteEndpoint);
-            _mainSocket.BeginReceive(state.Buffer, 0, state.Buffer.Length, SocketFlags.None, OnDataReceive, state);
+            try
+            {
+                var state = new State(_mainSocket, destination);
+                _mainSocket.Connect(remoteEndpoint);
+                _mainSocket.BeginReceive(state.Buffer, 0, state.Buffer.Length, SocketFlags.None, OnDataReceive, state );
+
+                Form1._Form1.LogAdd(String.Format("Tunnel established: {0:} -> {1:} ",destination.LocalEndPoint, remoteEndpoint.ToString()));
+            } catch (Exception ex)
+            {
+                OperationExecutionResult = ex.ToString();
+                Form1._Form1.LogAdd(OperationExecutionResult);
+                //MessageBox.Show(OperationExecutionResult);
+            }
         }
  
         private static void OnDataReceive(IAsyncResult result)
@@ -74,10 +87,24 @@ namespace PortTunnel_forWindowsXP_1
                 {
                     state.DestinationSocket.Send(state.Buffer, bytesRead, SocketFlags.None);
                     state.SourceSocket.BeginReceive(state.Buffer, 0, state.Buffer.Length, 0, OnDataReceive, state);
-                }
+
+                    string resultStr = System.Text.Encoding.UTF8.GetString(state.Buffer, 0, bytesRead);
+                    Form1._Form1.LogAdd("bytes: "+resultStr );
+                } else { 
+                    Form1._Form1.LogAdd("try: bytesCount: "+bytesCount.ToString());
+                }
             }
             catch
             {
+                string srcInfo = state.SourceSocket.Connected ? state.SourceSocket.LocalEndPoint +" -> "+ state.SourceSocket.RemoteEndPoint : "- -> -";
+                string dstInfo = state.DestinationSocket.Connected ? state.DestinationSocket.LocalEndPoint +" -> "+ state.DestinationSocket.RemoteEndPoint : "- -> -";
+                Form1._Form1.LogAdd(String.Format("catch. {0:}      {1:}  ", srcInfo, dstInfo ));
+
+                if(state.SourceSocket.Connected == false || state.DestinationSocket.Connected == false)
+                { 
+                    Form1._Form1.LogAdd(String.Format("Disconnect detected. source {0:} destination {1:}",state.SourceSocket.Connected, state.DestinationSocket.Connected));
+                }
+                Form1._Form1.LogAdd("catch: bytesCount: "+bytesCount.ToString());
                 state.DestinationSocket.Close();
                 state.SourceSocket.Close();
             }
@@ -85,7 +112,15 @@ namespace PortTunnel_forWindowsXP_1
 
         public void Stop()
         {
-            _mainSocket.Close();
+            try
+            {
+                _mainSocket.Close();
+            }
+            catch(Exception ex)
+            {
+                OperationExecutionResult = ex.ToString();
+                Form1._Form1.LogAdd(OperationExecutionResult);
+            }
         }
         private class State
         {

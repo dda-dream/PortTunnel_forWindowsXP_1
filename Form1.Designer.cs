@@ -39,7 +39,7 @@
             this.tb_Settings.Location = new System.Drawing.Point(1, 1);
             this.tb_Settings.Multiline = true;
             this.tb_Settings.Name = "tb_Settings";
-            this.tb_Settings.Size = new System.Drawing.Size(578, 168);
+            this.tb_Settings.Size = new System.Drawing.Size(842, 90);
             this.tb_Settings.TabIndex = 0;
             // 
             // button_Start
@@ -54,10 +54,11 @@
             // 
             // tb_Log
             // 
-            this.tb_Log.Location = new System.Drawing.Point(1, 175);
+            this.tb_Log.Location = new System.Drawing.Point(1, 97);
             this.tb_Log.Multiline = true;
             this.tb_Log.Name = "tb_Log";
-            this.tb_Log.Size = new System.Drawing.Size(578, 215);
+            this.tb_Log.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.tb_Log.Size = new System.Drawing.Size(842, 293);
             this.tb_Log.TabIndex = 2;
             // 
             // button_Stop
@@ -74,7 +75,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(579, 420);
+            this.ClientSize = new System.Drawing.Size(855, 424);
             this.Controls.Add(this.button_Stop);
             this.Controls.Add(this.tb_Log);
             this.Controls.Add(this.button_Start);
@@ -82,6 +83,7 @@
             this.Name = "Form1";
             this.Text = "Form1 - 2024-05-03 10:51";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.Shown += new System.EventHandler(this.Form1_Shown);
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -15,16 +15,17 @@ namespace PortTunnel_forWindowsXP_1
 {
     public partial class Form1 : Form
     {
+        public static Form1 _Form1;
         ControllerClass ControllerClass = new ControllerClass();
         public Form1()
         {
             InitializeComponent();
-            ControllerClass.parm_tb_Log(tb_Log);
+            _Form1 = this;
         }
         private void Form1_Shown( object sender, EventArgs e )
         {
             tb_Settings.Text = ControllerClass.ReadSettingsFile();
-            ControllerClass.LogAdd("Form1_Shown");
+            LogAdd("Form1_Shown");
         }
         void button1_Click( object sender, EventArgs e )
         {
@@ -34,9 +35,28 @@ namespace PortTunnel_forWindowsXP_1
         {
             ControllerClass.stop_threads();
         }
+        public void LogAdd(string message)
+        { 
+            if (InvokeRequired)
+            {
+                if(Form1._Form1 != null)
+                    this.Invoke(new Action<string>(LogAdd), new object[] {message});
+                return;
+            }
+
+            tb_Log.Text = tb_Log.Text +DateTime.Now.ToShortTimeString()+" : "+ message + Environment.NewLine;
+            tb_Log.SelectionStart = tb_Log.TextLength;
+            tb_Log.ScrollToCaret();
+        }
+
         private void Form1_FormClosing( object sender, FormClosingEventArgs e )
         {
             ControllerClass.stop_threads();
+        }
+
+        private void Form1_Load( object sender, EventArgs e )
+        {
+
         }
     }
 }
