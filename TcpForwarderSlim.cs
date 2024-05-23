@@ -15,9 +15,14 @@ namespace PortTunnel_forWindowsXP_1
         public IPEndPoint remote;
 
         public string name = "NotInitialized";
-
         public string startResult="OK";
 
+        public static long bytesCount;
+
+        public long GetbytesCount()
+        { 
+            return bytesCount; 
+        }
         public void StartListening()
         { 
             try {
@@ -61,6 +66,7 @@ namespace PortTunnel_forWindowsXP_1
             try
             {
                 var bytesRead = state.SourceSocket.EndReceive(result);
+                bytesCount += bytesRead;
                 if (bytesRead > 0)
                 {
                     state.DestinationSocket.Send(state.Buffer, bytesRead, SocketFlags.None);
