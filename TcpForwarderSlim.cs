@@ -30,6 +30,9 @@ namespace PortTunnel_forWindowsXP_1
                 _mainSocket.Listen(10);
             } catch (Exception ex)
             {
+                //if error Сделана попытка доступа к сокету методом, запрещенным правами доступа
+                //net stop hns
+                //net start hns
                 startResult = ex.Message.ToString();
             }        
         }

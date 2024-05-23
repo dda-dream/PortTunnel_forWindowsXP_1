@@ -58,7 +58,7 @@ namespace PortTunnel_forWindowsXP_1
         void listener_start(string listenAddress, string connectAddress, int listenPort, int connectPort)
         {
             TcpForwarderSlim tunnel = new TcpForwarderSlim();
-            tunnel.local = new IPEndPoint(IPAddress.Parse(listenAddress), listenPort);
+            tunnel.local  = new IPEndPoint(IPAddress.Parse(listenAddress),  listenPort);
             tunnel.remote = new IPEndPoint(IPAddress.Parse(connectAddress), connectPort);
             tunnel.name = String.Format("thread parameters: ({0}, {1}, {2}, {3})",listenAddress, connectAddress, listenPort, connectPort);
             LogAdd("START: "+tunnel.name);
