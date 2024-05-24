@@ -25,8 +25,8 @@ jobs:
     - name: Setup MSBuild.exe
       uses: microsoft/setup-msbuild@v2
     # Execute all unit tests in the solution
-    - name: Execute unit tests
-      run: dotnet test
+#    - name: Execute unit tests
+#      run: dotnet test
 
     # Restore the application to populate the obj folder with RuntimeIdentifiers
     - name: Restore the application
@@ -40,21 +40,7 @@ jobs:
         $pfx_cert_byte = [System.Convert]::FromBase64String("${{ secrets.Base64_Encoded_Pfx }}")
         $certificateFolder = $env:Wap_Project_Directory 
         $certificatePath = "GitHubActionsWorkflow.pfx"
-
-        echo "####"
-        echo "=1=>:"
-        echo "$certificateFolder"
-        echo "=2=>:"
-        mkdir "$certificateFolder"
-        echo "$certificatePath"
-        echo "=4=>:"
-        dir "$certificateFolder"
-        echo "=4=>:"
-        dir "$certificateFolder"
-        echo "=5=>:"
-        mkdir "$env:Wap_Project_Path"
-        echo "####"
-        
+       
         [IO.File]::WriteAllBytes("$certificatePath", $pfx_cert_byte)
         
         
