@@ -88,10 +88,10 @@ namespace PortTunnel_forWindowsXP_1
                     state.DestinationSocket.Send(state.Buffer, bytesRead, SocketFlags.None);
                     state.SourceSocket.BeginReceive(state.Buffer, 0, state.Buffer.Length, 0, OnDataReceive, state);
 
-                    string resultStr = System.Text.Encoding.UTF8.GetString(state.Buffer, 0, bytesRead);
-                    Form1._Form1.LogAdd("bytes: "+resultStr );
+                    //string resultStr = System.Text.Encoding.UTF8.GetString(state.Buffer, 0, bytesRead);
+                    //Form1._Form1.LogAdd("bytes received: "+resultStr );
                 } else { 
-                    Form1._Form1.LogAdd("try: bytesCount: "+bytesCount.ToString());
+                    Form1._Form1.LogAdd("try: NO bytesCount");
                 }
             }
             catch
