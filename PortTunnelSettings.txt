@@ -1,2 +1,4 @@
-listenPort=4001 listenAddress=0.0.0.0 connectPort=3389 connectAddress=172.18.12.47
-listenPort=14002 listenAddress=0.0.0.0 connectPort=3389 connectAddress=192.168.223.4
+listenPort=4001 listenAddress=0.0.0.0 connectPort=80 connectAddress=10.0.0.1
+listenPort=4002 listenAddress=0.0.0.0 connectPort=80 connectAddress=89.221.239.1
+
+

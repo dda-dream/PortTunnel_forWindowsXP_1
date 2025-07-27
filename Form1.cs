@@ -44,7 +44,7 @@ namespace PortTunnel_forWindowsXP_1
                 return;
             }
 
-            tb_Log.Text = tb_Log.Text +DateTime.Now.ToShortTimeString()+" : "+ message + Environment.NewLine;
+            tb_Log.Text = tb_Log.Text +" "+ DateTime.Now.ToShortDateString() + " "+DateTime.Now.ToLongTimeString()+" : "+ message + Environment.NewLine;
             tb_Log.SelectionStart = tb_Log.TextLength;
             tb_Log.ScrollToCaret();
         }
